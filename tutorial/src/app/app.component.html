@@ -1,1 +1,39 @@
-<p>Hello world!</p>
+<header align="center">
+    <a href="#" class="logo">VDFTutorial</a>
+    <a class="btn" href="javascript:void(0)" id="btPrenota">Prenota</a>
+    <a href="javascript:void(0)" class="btn-menu" onClick="toggle()">&#9776;</a>
+</header>
+
+<nav id="navbar">
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)">Pagina 1</a>
+            <div class="dropdown-content">
+                <a href="#">Voce 1</a>
+                <a href="#">Voce 2</a>
+                <a href="#">Voce 3</a>
+            </div>
+        </li>
+        <li><a href="#">Pagina 2</a></li>
+        <li><a href="#">Pagina 3</a></li>
+    </ul>
+</nav>
+
+<div id="content">
+   <app-home [user]="username"></app-home>
+</div>
+<footer>
+    Segui tutti i tuorial e se non capisci leggi i commenti, se non capisci ancora riguarda il video, se ancora non
+    ricapisci... ho paura che tu abbia qualche problema...
+    <h3>Mappa del sito</h3>
+    <ul>
+        <li>Home</li>
+        <li>Lezione 1</li>
+        <li>Lezione 2</li>
+        <li>Lezione 3</li>
+        <li>Lezione 4</li>
+    </ul>
+</footer>
+<div id="copyright">&copy; Copyright Tutorial veloci 2019</div>
