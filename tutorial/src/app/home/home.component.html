@@ -1,6 +1,11 @@
-<div id="about">
+<div #about *ngIf="show">
     <h2>Ciao {{user}}</h2>
-    <p>Gente in cerca di se stessi nell'intento di trovare sfogo nell'informatica e nelle parole poco religiose
+    <p>
+		{{today | date: 'dd EEEE MMMM yyyy HH:mm:ss'}}
+
+		{{money | currency}}
+		
+		Gente in cerca di se stessi nell'intento di trovare sfogo nell'informatica e nelle parole poco religiose
         pronunciate durante la fase di sviluppo del software: Lorem impsum
         Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem
         impsum Lorem impsum Lorem impsum Lorem impsum
@@ -14,8 +19,16 @@
         impsum Lorem impsum Lorem impsum Lorem impsumLorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum
         Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum
         Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem
-        impsum Lorem impsum Lorem impsum Lorem impsum</p>
+        impsum Lorem impsum Lorem impsum Lorem impsum
+
+		<button (click)="printElement()">Print</button>
+	  <select (change)="hello(selectField)" #selectField>
+		  <option value="1">Saluta con l'alert</option>
+		  <option value="2">Saluta in console</option>
+	  </select>
+	</p>
 </div>
+<button  id="button" (click)="showHidden()">Mostra/Nascondi</button>
 <app-sidebar></app-sidebar>
 <div class="mainpage">
     <h1>Esempi di testo</h1>
