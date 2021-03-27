@@ -5,7 +5,7 @@ import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit {
 
   @Input() user: string;
 
@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('about', { static: false }) aboutElement: ElementRef;
 
   show: boolean = false;
+
+  size: string = "none";
 
   constructor() {
     this.today = new Date();
@@ -46,14 +48,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   hello(field: HTMLSelectElement) {
     if (field.value == "1") {
-      alert("Ciao!")
+      this.size = "big";
+    } else if (field.value == "2") {
+      this.size = "small";
     } else {
-      console.log("Ciao!");
+      this.size = "none";
     }
-  }
-
-  ngAfterViewInit(): void {
-    document.getElementById("button").style.backgroundColor = "red";
   }
 
 }
