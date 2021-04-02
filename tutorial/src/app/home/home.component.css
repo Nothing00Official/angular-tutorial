@@ -6,3 +6,9 @@
     font-size: 50%;
     text-transform: lowercase;
 }
+.form-control{
+    background-color: white;
+    border: 1px solid black;
+    padding: 15px;
+    outline: none;
+}

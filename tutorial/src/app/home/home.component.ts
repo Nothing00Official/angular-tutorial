@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,11 @@ export class HomeComponent implements OnInit {
 
   size: string = "none";
 
-  constructor() {
+  selectField: FormControl = new FormControl("1");
+
+  form: FormGroup;
+
+  constructor(public fb: FormBuilder) {
     this.today = new Date();
 
     let money1 = 2345345433;
@@ -28,6 +33,12 @@ export class HomeComponent implements OnInit {
     this.money = this.sum(money1, money2);
 
     console.log("costruttore!");
+
+    this.form = fb.group({
+      'user': ['ciao', Validators.required],
+      'email': ['', Validators.required],
+      'date': ['']
+    });
   }
 
   ngOnInit(): void {
@@ -46,14 +57,35 @@ export class HomeComponent implements OnInit {
     console.log(this.aboutElement.nativeElement);
   }
 
-  hello(field: HTMLSelectElement) {
-    if (field.value == "1") {
+  hello() {
+    if (this.selectField.value == "1") {
       this.size = "big";
-    } else if (field.value == "2") {
+    } else if (this.selectField.value == "2") {
       this.size = "small";
     } else {
       this.size = "none";
     }
   }
 
+  checkUser() {
+    let user = this.form.controls['user'].value;
+    if (!(user.length >= 8)) {
+      this.form.controls['user'].setErrors({ incorect: true });
+    }else{
+      this.form.controls['user'].setErrors(null);
+    }
+  }
+
+
+  send(): void {
+    if (!this.form.valid) {
+      alert("compilare tutti i campi obbligatori!");
+      return;
+    }
+    console.log(
+      this.form.controls['user'].value,
+      this.form.controls['email'].value,
+      this.form.controls['date'].value,
+    );
+  }
 }
