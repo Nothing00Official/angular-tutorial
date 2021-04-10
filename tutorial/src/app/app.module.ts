@@ -8,6 +8,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import localeIt from '@angular/common/locales/it';
 import { registerLocaleData } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 registerLocaleData(localeIt, 'it');
 
@@ -21,7 +22,8 @@ registerLocaleData(localeIt, 'it');
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'it' }, { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' }],
   bootstrap: [AppComponent]

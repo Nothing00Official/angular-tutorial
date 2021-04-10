@@ -1,7 +1,8 @@
 <div class="sidebar">
     <input type="text" id="searchbar" placeholder="Cerca..." />
-    <button id="searchbutton">Cerca</button>
+    <button id="searchbutton" (click)="createEpisode(43, 'roleTest', 'esempio tutorial', '15:00') ">Cerca</button>
     <hr>
+    <h2 *ngIf="loading">LOADING...</h2>
     <h3>Lezioni Recenti:</h3>
     <ol>
         <li>Lezione 1 - Titolo della lezione che non ricordo...</li>
