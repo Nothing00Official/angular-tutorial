@@ -3,18 +3,10 @@
     <button id="searchbutton" (click)="createEpisode(43, 'roleTest', 'esempio tutorial', '15:00') ">Cerca</button>
     <hr>
     <h2 *ngIf="loading">LOADING...</h2>
-    <h3>Lezioni Recenti:</h3>
+    <h3>Utenti Iscritti:</h3>
+    <h4 *ngIf="episode!=null">Episodio di oggi {{episode.title}}</h4>
     <ol>
-        <li>Lezione 1 - Titolo della lezione che non ricordo...</li>
-        <li>Lezione 2 - Titolo della lezione che non ricordo...</li>
-        <li>Lezione 3 - Titolo della lezione che non ricordo...</li>
-        <li>Lezione 4- Titolo della lezione che non ricordo... </li>
-        <li>Lezione 5 - Titolo della lezione che non ricordo...</li>
-        <li>Lezione 6 - Titolo della lezione che non ricordo...</li>
-        <li>Lezione 7 - Titolo della lezione che non ricordo...</li>
-        <li>Lezione 8 - Titolo della lezione che non ricordo... </li>
-        <li>Lezione 9 - Titolo della lezione che non ricordo...</li>
-        <li>Lezione 10 - Titolo della lezione che non ricordo...</li>
+        <li *ngFor="let u of users">{{u.name}} - ID: {{u.id}}</li>
     </ol>
     <ul>
         <li>Linguaggi Client
