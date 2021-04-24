@@ -8,4 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'tutorial';
   username: string = null;
+  user: string = "Nothing00";
+  id: string = "ciao-mondo";
 }

@@ -12,3 +12,196 @@
     padding: 15px;
     outline: none;
 }
+/* You can add global styles to this file, and also import other style files */
+body{
+	background-color: #e6e6e6;
+	color: #d11313;
+	margin: 0;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.sidebar ul{
+	counter-reset: section;
+	list-style-type: none;
+}
+
+.sidebar ul li::before{
+	counter-increment: section;
+	content: counters(section,".") ">>";
+}
+
+.sidebar ul li{
+	text-align: left;
+}
+
+header{
+	background-color: #383232;
+	color: white;
+	padding: 15px;
+	text-align: left;
+	position: sticky;
+	height: auto;
+}
+
+nav{
+	background-color: #404040;
+	color: white;
+}
+
+nav ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav li a{
+	text-decoration: none;
+	color: white;
+}
+
+nav li:hover{
+	background-color: #737373;
+}
+
+.dropdown-content a:hover{
+	background-color: #737373;
+}
+
+nav li{
+	display: inline-block;
+	padding: 15px;
+}
+
+.dropdown-content {
+	position: absolute;
+	background-color: #b3b3b3;
+	margin-top: 15px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	display: none;
+}
+
+.dropdown{
+  text-align: center;
+  padding: 14px 16px;	
+}
+
+.dropdown-content a{
+	display: block;
+	padding: 15px;
+}
+
+.dropdown:hover .dropdown-content{
+	display: block;
+}
+
+
+.logo{
+	color: white;
+	text-decoration: none;
+	font-size: 35px;
+}
+
+.homehead h1{
+	color: white;
+	margin: 25px;
+}
+
+.homehead p{
+	text-transform: small-caps;
+	color: white;
+	font-style: italic;
+}
+
+#about h2{
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#about{
+	padding: 3.5%;
+	color: white;
+	text-transform: capitalize;
+	background-color: #595959;
+}
+
+.sidebar{
+	float: right;
+	width: 15%;
+	padding-top: 2%;
+}
+
+.sidebar h3{
+	text-transform: small-caps;
+	color: black;
+}
+.sidebar ol{
+	text-align: left;
+	color: #808080;
+}
+.sidebar li:hover{
+	color: #801a00;
+}
+
+.btn-menu{
+	display: none;
+}
+
+.mainpage{
+    width: 79%;
+	color: black;
+	padding: 3%;
+	text-align: left;
+	border-right: 2px solid black;
+}
+
+.btn{
+	text-decoration: none;
+	padding: 15px;
+	border: 1px solid black;
+	border-radius: 5px;
+	color: white;
+	background-color: blue;
+	font-weight: bold;
+	float: right;
+}
+
+.btn:hover{
+	-webkit-box-shadow: -5px -5px 3px 3px rgba(0,0,255,0.75);
+    -moz-box-shadow: -5px -5px 3px 3px rgba(0,0,255,0.75);
+    box-shadow: -5px -5px 3px 3px rgba(0,0,255,0.75);
+}
+
+input[type="text"]{
+	background-color: rgba(0,0,0,0);
+	outline: none;
+	display: inline-block;
+	font-size: 15px;
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+button{
+	padding: 7.5px;
+	border: 1px solid black;
+	color: white;
+	background-color: blue;
+	display: inline-block;
+}
+
+footer{
+	color: white;
+	background-color: #1a1a1a;
+	padding: 25px;
+	text-align: left;
+}
+
+footer ul{
+	list-style-type: none;
+}
+
+#copyright{
+	background-color: black;
+	padding: 15px;
+}
+
