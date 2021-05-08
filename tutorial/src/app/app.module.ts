@@ -13,6 +13,7 @@ import { MainComponent } from './main/main.component';
 import { BlogComponent } from './blog/blog.component';
 import { PageComponent } from './page/page.component';
 import { Page404Component } from './page404/page404.component';
+import { ColorDirective } from './color.directive';
 
 registerLocaleData(localeIt, 'it');
 
@@ -24,7 +25,8 @@ registerLocaleData(localeIt, 'it');
     MainComponent,
     BlogComponent,
     PageComponent,
-    Page404Component
+    Page404Component,
+    ColorDirective
   ],
   imports: [
     BrowserModule,
