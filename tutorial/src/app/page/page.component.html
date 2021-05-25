@@ -1,24 +1,37 @@
 <main id="main">
 
-    <!-- ======= Breadcrumbs ======= -->
-    <section class="breadcrumbs">
-      <div class="container">
+  <!-- ======= Breadcrumbs ======= -->
+  <section class="breadcrumbs">
+    <div class="container">
 
-        <ol>
-          <li><a href="index.html">Home</a></li>
-          <li>Inner Page</li>
-        </ol>
-        <h2>Inner Page</h2>
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li>Inner Page</li>
+      </ol>
+      <h2>Inner Page</h2>
 
+    </div>
+  </section><!-- End Breadcrumbs -->
+
+  <section class="inner-page">
+    <div class="container">
+      <p>
+        {{title}} di {{user}}
+      </p>
+      <h3>Caricamento al {{progress}}%</h3>
+      <p style="color: red">{{error}}</p>
+      <div class="uploadfilecontainer"
+        (click)="fileInput.click()" appDragDrop (onFileDropped)="onDrag($event)">
+        <input hidden type="file" #fileInput (change)="onDrag($event.target.files)">
       </div>
-    </section><!-- End Breadcrumbs -->
-
-    <section class="inner-page">
-      <div class="container">
-        <p>
-          {{title}} di {{user}}
-        </p>
+      <div class="files-list" *ngFor="let f of toUpload">
+        <p>{{f.name}}</p>
+        <button class="delete-file" (click)="toUpload.splice(toUpload.indexOf(f), 1)">
+          <img src="assets/img/delete.png">
+        </button>
       </div>
-    </section>
+      <button class="btn btn-primary" (click)="send()" [disabled]="toUpload.length==0">Upload</button>
+    </div>
+  </section>
 
-  </main>
+</main>
