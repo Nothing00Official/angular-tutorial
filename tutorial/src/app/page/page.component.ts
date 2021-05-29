@@ -25,6 +25,7 @@ export class PageComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    console.log("start")
   }
 
   onDrag(event) {
