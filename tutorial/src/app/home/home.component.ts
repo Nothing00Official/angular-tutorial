@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,7 @@ export class HomeComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(public fb: FormBuilder) {
+  constructor(private title: Title, private meta: Meta, public fb: FormBuilder) {
     this.today = new Date();
 
     let money1 = 2345345433;
@@ -39,6 +40,9 @@ export class HomeComponent implements OnInit {
       'email': ['', Validators.required],
       'date': ['']
     });
+    this.title.setTitle("Homepage Tutorial");
+    this.meta.updateTag({ name: 'description', content: "questa è una homepage" });
+    this.meta.updateTag({ name: 'keywords', content: "tutorial, homepage, sito in angular" });
   }
 
   ngOnInit(): void {
@@ -71,7 +75,7 @@ export class HomeComponent implements OnInit {
     let user = this.form.controls['user'].value;
     if (!(user.length >= 8)) {
       this.form.controls['user'].setErrors({ incorect: true });
-    }else{
+    } else {
       this.form.controls['user'].setErrors(null);
     }
   }

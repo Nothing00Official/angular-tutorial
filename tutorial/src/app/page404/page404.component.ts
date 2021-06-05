@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-page404',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Page404Component implements OnInit {
 
-  constructor() { }
+  constructor(private title: Title, private meta: Meta) { 
+    this.title.setTitle("404 - Pagina non trovata");
+    this.meta.updateTag({ name: 'description', content: "questa pagina non esiste" });
+    this.meta.updateTag({ name: 'keywords', content: "tutorial, homepage, sito in angular" });
+  }
 
   ngOnInit(): void {
   }
