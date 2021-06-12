@@ -42,7 +42,8 @@ export class HomeComponent implements OnInit {
     });
     this.title.setTitle("Homepage Tutorial");
     this.meta.updateTag({ name: 'description', content: "questa è una homepage" });
-    this.meta.updateTag({ name: 'keywords', content: "tutorial, homepage, sito in angular" });
+    this.meta.updateTag({ name: 'keywords', content: "tutorial, homepage, sito in angularm metadata" });
+    this.meta.updateTag({ charset: "utf-8" });
   }
 
   ngOnInit(): void {
