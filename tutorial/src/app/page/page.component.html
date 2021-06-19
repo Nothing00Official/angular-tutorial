@@ -1,4 +1,4 @@
-<main id="main">
+<main id="main" *ngIf="name!=null">
 
   <!-- ======= Breadcrumbs ======= -->
   <section class="breadcrumbs">
@@ -15,6 +15,7 @@
 
   <section class="inner-page">
     <div class="container">
+      <button (click)="logout()">Logout</button>
       <h1>
         {{title}} di {{user}}
       </h1>

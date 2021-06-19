@@ -1,6 +1,6 @@
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 @Component({
   selector: 'app-page',
@@ -17,12 +17,34 @@ export class PageComponent implements OnInit {
 
   error: string;
 
-  constructor(public route: ActivatedRoute, public http: HttpClient) {
+  name: string;
+
+  constructor(public route: ActivatedRoute, public http: HttpClient, public router: Router) {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.title = params.get('id');
       this.user = params.get('user');
     })
-   }
+
+    this.http.post("https://tutorial.craftuniversity.it/session.php", {
+      request: "check"
+    }).subscribe(res => {
+      if (res[0] == "KO") {
+        localStorage.removeItem("name");
+        this.router.navigate(['/blog']);
+      } else {
+        this.name = localStorage.getItem("name");
+      }
+    });
+  }
+
+  logout(){
+    this.http.post("https://tutorial.craftuniversity.it/session.php", {
+      request: "logout"
+    }).subscribe(res => {
+      localStorage.removeItem("name");
+      this.router.navigate(['/blog']);
+    });
+  }
 
   ngOnInit(): void {
     console.log("start")
