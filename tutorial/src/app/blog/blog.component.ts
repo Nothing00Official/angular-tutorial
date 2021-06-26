@@ -43,7 +43,7 @@ export class BlogComponent implements OnInit {
         localStorage.setItem("name", res[1]);
         this.router.navigate(['/page/Nothing00/ciao-mondo']);
       }
-    })
+    });
   }
 
 }
