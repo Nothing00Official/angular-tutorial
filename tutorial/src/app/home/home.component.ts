@@ -1,6 +1,12 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Meta, Title } from '@angular/platform-browser';
+
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-home',
@@ -8,6 +14,9 @@ import { Meta, Title } from '@angular/platform-browser';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  animal: string;
+  name: string;
 
   @Input() user: string;
 
@@ -25,7 +34,7 @@ export class HomeComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private title: Title, private meta: Meta, public fb: FormBuilder) {
+  constructor(private title: Title, private meta: Meta, public fb: FormBuilder, public dialog: MatDialog) {
     this.today = new Date();
 
     let money1 = 2345345433;
@@ -44,6 +53,18 @@ export class HomeComponent implements OnInit {
     this.meta.updateTag({ name: 'description', content: "questa è una homepage" });
     this.meta.updateTag({ name: 'keywords', content: "tutorial, homepage, sito in angularm metadata" });
     this.meta.updateTag({ charset: "utf-8" });
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '250px',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
   }
 
   ngOnInit(): void {
@@ -93,4 +114,19 @@ export class HomeComponent implements OnInit {
       this.form.controls['date'].value,
     );
   }
+}
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'dialog-overview-example-dialog.html',
+})
+export class DialogOverviewExampleDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 }

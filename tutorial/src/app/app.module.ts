@@ -15,6 +15,12 @@ import { PageComponent } from './page/page.component';
 import { Page404Component } from './page404/page404.component';
 import { ColorDirective } from './color.directive';
 import { DragDropDirective } from './dragdrop.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 registerLocaleData(localeIt, 'it');
 
@@ -35,7 +41,13 @@ registerLocaleData(localeIt, 'it');
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatProgressBarModule,
+    MatDialogModule,
+    MatInputModule,
+    MatButtonModule,
+    MatFormFieldModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'it' }, { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' }],
   bootstrap: [AppComponent]

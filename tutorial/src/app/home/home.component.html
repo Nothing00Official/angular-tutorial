@@ -1,3 +1,18 @@
+<ol>
+	<li>
+	  <mat-form-field appearance="fill">
+		<mat-label>What's your name?</mat-label>
+		<input matInput >
+	  </mat-form-field>
+	</li>
+	<li>
+	  <button mat-raised-button (click)="openDialog()">Pick one</button>
+	</li>
+	<li *ngIf="animal!=null">
+	  You chose: <i>{{animal}}</i>
+	</li>
+  </ol>
+
 <div #about *ngIf="show">
 	<h2>Ciao {{user == null ? 'Utente Sconosciuto' : user}}</h2>
 
