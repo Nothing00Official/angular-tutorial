@@ -21,6 +21,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { ChartsModule } from 'ng2-charts';
+import { ChartsComponent } from './charts/charts.component';
 
 registerLocaleData(localeIt, 'it');
 
@@ -34,7 +36,8 @@ registerLocaleData(localeIt, 'it');
     BlogComponent,
     PageComponent,
     Page404Component,
-    ColorDirective
+    ColorDirective,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ registerLocaleData(localeIt, 'it');
     MatDialogModule,
     MatInputModule,
     MatButtonModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    ChartsModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'it' }, { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' }],
   bootstrap: [AppComponent]
