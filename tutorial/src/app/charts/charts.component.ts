@@ -10,7 +10,7 @@ export class ChartsComponent implements OnInit {
   constructor() { }
 
   public barChartOptions = {
-    scaleShowVerticalLines: false,
+    scaleShowVerticalLines: true,
     responsive: true
   };
 
@@ -21,21 +21,22 @@ export class ChartsComponent implements OnInit {
   public barChartData = [
     {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
     {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series C'}
+    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series C'},
+    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series D'}
   ];
 
 
   //doughnut
 
-  public doughnutChartLabels = ['Sales Q1', 'Sales Q2', 'Sales Q3', 'Sales Q4'];
-  public doughnutChartData = [120, 150, 180, 90];
+  public doughnutChartLabels = ['Sales Q1', 'Sales Q2', 'Sales Q3', 'Sales Q4', 'Sales Q5'];
+  public doughnutChartData = [120, 150, 180, 90, 150];
   public doughnutChartType = 'doughnut';
 
   //radar
-  public radarChartLabels = ['Q1', 'Q2', 'Q3', 'Q4', 'Q5'];
+  public radarChartLabels = ['Q1', 'Q2', 'Q3', 'Q4'];
   public radarChartData = [
-    {data: [120, 130, 180, 70, 1], label: '2017'},
-    {data: [90, 150, 200, 45, 1], label: '2018'}
+    {data: [120, 130, 180, 70], label: '2017'},
+    {data: [90, 150, 200, 45], label: '2018'}
   ];
   public radarChartType = 'radar';
 

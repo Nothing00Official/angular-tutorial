@@ -1,25 +1,27 @@
 <div>
     <div style="display: block; width: 30%; margin: 5%">
         <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-            [legend]="barChartLegend" [chartType]="barChartType">
+            [legend]="barChartLegend" chartType="bar">
         </canvas>
     </div>
+
+
+
     <div style="display: block; width: 30%; margin: 5%">
-        <canvas baseChart
-                    [data]="doughnutChartData"
-                    [labels]="doughnutChartLabels"
-                    [chartType]="doughnutChartType"></canvas>
-      </div>
-      <div style="display: block; width: 30%; margin: 5%">
-        <canvas baseChart
-                [datasets]="radarChartData"
-                [labels]="radarChartLabels"
-                [chartType]="radarChartType"></canvas>
-      </div>
-      <div style="display: block; width: 30%; margin: 5%">
-        <canvas baseChart
-                [data]="pieChartData"
-                [labels]="pieChartLabels"
-                [chartType]="pieChartType"></canvas>
-      </div>
+        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"
+            [chartType]="doughnutChartType"></canvas>
+    </div>
+
+
+
+
+    <div style="display: block; width: 30%; margin: 5%">
+        <canvas baseChart [datasets]="radarChartData" [labels]="radarChartLabels" [chartType]="radarChartType"></canvas>
+    </div>
+
+
+
+    <div style="display: block; width: 30%; margin: 5%">
+        <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"></canvas>
+    </div>
 </div>
